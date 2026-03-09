@@ -59,11 +59,19 @@
 chmod +x build.sh && ./build.sh
 ```
 
-# 🚀 Performance Benchmarks (Intel i3-540 @ 3.06GHz, 3.75GB Ram)
+## 🚀 Performance Benchmarks (Intel i3-540 @ 3.06GHz, 3.75GB Ram)
 
 Measured using **Google Benchmark** on Arch Linux (Kernel 6.18):
 
 | Configuration | Latency | Throughput |
 | :--- | :--- | :--- |
-| **Pinned (Core 0/1)** | **4.43 ns** | **225.6M items/s** |
+| **Pinned (Core 0/1)** | **4.09 ns** | **243.9M items/s** |
 | **Unpinned (OS Default)** | 26.7 ns | 37.4M items/s |
+
+## 📚 Credits & Inspiration
+#### This project is a practical implementation of concepts discussed in the following CppCon sessions:
+- Fedor Pikus: "C++ atomics, from basic to advanced. What do they really do?"
+- Charles Frasch: "Single Producer Single Consumer Lock-free FIFO From the Ground Up"
+
+## ⚖️ License
+Distributed under the MIT License. See LICENSE for more information.
