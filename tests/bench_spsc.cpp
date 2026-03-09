@@ -1,4 +1,4 @@
-#include "spscQueue.cpp"
+#include "spscQueue.hpp"
 
 #include <benchmark/benchmark.h>
 #include <cstdint>
