@@ -52,3 +52,18 @@
 - **Compiler:** g++ -O3. Optimization level 3 is mandatory for lock-free code to allow the compiler to reorder non-atomic instructions for maximum pipeline efficiency.
 - **Memory Check:** We used std::is_trivially_copyable<T> to ensure our SyncTask could be moved using simple bit-copies (memcpy style), which is the fastest way to move data in a ring buffer.
 - **Profiling:** We used perf stat on Arch Linux to monitor Instructions Per Cycle (IPC) and Cache-Misses, confirming that our alignas(64) padding successfully reduced cache contention.
+
+## 9. How to run:
+- Using the build script:
+```bash
+chmod +x build.sh && ./build.sh
+```
+
+# 🚀 Performance Benchmarks (Intel i3-540 @ 3.06GHz, 3.75GB Ram)
+
+Measured using **Google Benchmark** on Arch Linux (Kernel 6.18):
+
+| Configuration | Latency | Throughput |
+| :--- | :--- | :--- |
+| **Pinned (Core 0/1)** | **4.43 ns** | **225.6M items/s** |
+| **Unpinned (OS Default)** | 26.7 ns | 37.4M items/s |
